@@ -3,9 +3,12 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type {Config} from 'jest';
+import type { Config } from "jest";
 
 const config: Config = {
+  transform: {
+    "^.+\\.ts$": "@swc/jest",
+  },
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
