@@ -1,10 +1,6 @@
 import { Sequelize } from "sequelize-typescript";
 import ClientModel from "../repository/client.model";
-import ClientRepository from "../repository/client.repository";
-import AddClientUsecase from "../usecase/add-client/add-client.usecase";
-import ClientAdmFacade from "./client-adm.facade";
 import { AddClientFacadeInputDto, FindClientFacadeInputDto } from "./client-adm.facade.interface";
-import FindClientUsecase from "../usecase/find-client/find-client.usecase";
 import ClientAdmFacadeFactory from "../factory/client-adm.facade.factory";
 
 describe("ClientAdm Facade test", () => {
