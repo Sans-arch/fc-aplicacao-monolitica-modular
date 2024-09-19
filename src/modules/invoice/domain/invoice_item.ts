@@ -16,4 +16,12 @@ export default class InvoiceItem extends BaseEntity {
     this._name = props.name;
     this._price = props.price;
   }
+
+  get name(): string {
+    return this._name;
+  }
+
+  get price(): number {
+    return this._price;
+  }
 }
