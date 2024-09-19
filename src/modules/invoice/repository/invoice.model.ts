@@ -18,7 +18,7 @@ export default class InvoiceModel extends Model {
   declare document: string;
 
   @HasMany(() => InvoiceItemModel)
-  declare items: InvoiceItem[];
+  declare items: InvoiceItemModel[];
 
   @Column({ allowNull: false })
   declare street: string;

@@ -40,7 +40,13 @@ export default class InvoiceRepository implements InvoiceGateway {
       id: new Id(persistedInvoice.id),
       name: persistedInvoice.name,
       document: persistedInvoice.document,
-      items: persistedInvoice.items,
+      items: persistedInvoice.items.map((item) => {
+        return new InvoiceItem({
+          id: new Id(item.id),
+          name: item.name,
+          price: item.price,
+        });
+      }),
       address: new Address({
         street: persistedInvoice.street,
         number: persistedInvoice.number,
@@ -72,7 +78,7 @@ export default class InvoiceRepository implements InvoiceGateway {
       document: invoice.document,
       items: invoice.items.map((item) => {
         return new InvoiceItem({
-          id: new Id(item.id.id),
+          id: new Id(item.id),
           name: item.name,
           price: item.price,
         });

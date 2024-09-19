@@ -1,3 +1,4 @@
+import Id from "../../../@shared/domain/value-object/id.value-object";
 import UseCaseInterface from "../../../@shared/usecase/use-case.interface";
 import Address from "../../domain/address";
 import Invoice from "../../domain/invoice";
@@ -13,21 +14,24 @@ export default class GenerateInvoiceUsecase implements UseCaseInterface {
   }
 
   async execute(input: GenerateInvoiceUseCaseInputDto): Promise<GenerateInvoiceUseCaseOutputDto> {
-    const items: InvoiceItem[] = [];
-    const address = new Address({
-      city: input.city,
-      complement: input.complement,
-      number: input.number,
-      state: input.state,
-      street: input.street,
-      zipCode: input.zipCode,
-    });
-
     const invoice = new Invoice({
       name: input.name,
-      items: items,
+      items: input.items.map((item) => {
+        return new InvoiceItem({
+          id: new Id(item.id),
+          name: item.name,
+          price: item.price,
+        });
+      }),
       document: input.document,
-      address: address,
+      address: new Address({
+        city: input.city,
+        complement: input.complement,
+        number: input.number,
+        state: input.state,
+        street: input.street,
+        zipCode: input.zipCode,
+      }),
     });
 
     const persistedInvoice = await this._repository.save(invoice);
