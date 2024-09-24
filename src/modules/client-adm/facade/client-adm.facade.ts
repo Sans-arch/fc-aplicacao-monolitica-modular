@@ -26,11 +26,18 @@ export default class ClientAdmFacade implements ClientAdmFacadeInterface {
       name: input.name,
       email: input.email,
       address: input.address,
+      city: input.city,
+      complement: input.complement,
+      document: input.document,
+      number: input.number,
+      state: input.state,
+      street: input.street,
+      zipCode: input.zipCode,
     });
   }
 
   async find(input: FindClientFacadeInputDto): Promise<FindClientFacadeOutputDto> {
-    const client = await this._findUsecase?.execute(input);
+    const client = await this._findUsecase.execute(input);
     return {
       id: client.id,
       name: client.name,
@@ -38,6 +45,13 @@ export default class ClientAdmFacade implements ClientAdmFacadeInterface {
       address: client.address,
       createdAt: client.createdAt,
       updatedAt: client.updatedAt,
+      city: client.city,
+      complement: client.complement,
+      document: client.document,
+      number: client.number,
+      state: client.state,
+      street: client.street,
+      zipCode: client.zipCode,
     };
   }
 }

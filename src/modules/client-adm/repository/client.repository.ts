@@ -12,6 +12,13 @@ export default class ClientRepository implements ClientGateway {
       address: client.address,
       createdAt: client.createdAt,
       updatedAt: client.updatedAt,
+      city: client.city,
+      complement: client.complement,
+      document: client.document,
+      number: client.number,
+      state: client.state,
+      street: client.street,
+      zipCode: client.zipCode,
     });
   }
 
@@ -29,6 +36,13 @@ export default class ClientRepository implements ClientGateway {
       name: client.name,
       createdAt: client.createdAt,
       updatedAt: client.updatedAt,
+      city: client.city,
+      complement: client.complement,
+      document: client.document,
+      number: client.number,
+      state: client.state,
+      street: client.street,
+      zipCode: client.zipCode,
     });
   }
 }

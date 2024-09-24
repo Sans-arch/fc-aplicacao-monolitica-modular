@@ -30,6 +30,13 @@ describe("ClientAdm Facade test", () => {
       name: "Client 1",
       email: "x@x.com",
       address: "Address 1",
+      city: "",
+      complement: "",
+      document: "",
+      number: "",
+      state: "",
+      street: "",
+      zipCode: "",
     };
     await facade.add(input);
 
@@ -50,6 +57,15 @@ describe("ClientAdm Facade test", () => {
       name: "Client 1",
       email: "x@x.com",
       address: "Address 1",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      city: "",
+      complement: "",
+      document: "",
+      number: "",
+      state: "",
+      street: "",
+      zipCode: "",
     });
 
     const input: FindClientFacadeInputDto = { id: "1" };
